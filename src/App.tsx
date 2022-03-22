@@ -1,25 +1,21 @@
-import styled from 'styled-components';
+import Card from './components/Card';
 
 function App() {
     return (
         <>
-            <StyledHeader>dobby header</StyledHeader>
-            <StyledBody>hello dobby!!</StyledBody>
+            <Card
+                image='https://image.idus.com/image/files/80a2555dae5d4afebadc9f38aed072f4_512.jpg'
+                label='유얼어데이 디퓨저'
+                title='[웰컴딜]후기대박/재구매1위 유얼어데이 시나몬 디퓨저'
+            />
+            <Card
+                image='https://image.idus.com/image/files/80a2555dae5d4afebadc9f38aed072f4_512.jpg'
+                label='유얼어데이 디퓨저'
+                title='[웰컴딜]후기대박/재구매1위 유얼어데이 시나몬 디퓨저'
+                direction={'horizental'}
+            />
         </>
     );
 }
-
-const StyledBody = styled.div`
-    color: #fff;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 800px;
-`;
-
-const StyledHeader = styled.header`
-    display: flex;
-`;
 
 export default App;
