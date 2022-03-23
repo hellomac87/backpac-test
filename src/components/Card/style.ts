@@ -11,7 +11,7 @@ type Thumbnail = {
 };
 
 export const Container = styled.div<Container>`
-    max-width: ${({ direction }) => `${direction === 'vertical' ? '250px' : '350px'}`};
+    min-width: ${({ direction }) => `${direction === 'vertical' ? '250px' : '350px'}`};
     display: flex;
     flex-direction: ${({ direction }) => `${direction === 'vertical' ? 'column' : 'row'}`};
     border: 1px solid #d9d9d9;
@@ -40,8 +40,25 @@ export const Thumbnail = styled.div<Thumbnail>`
 `;
 
 export const Body = styled.div`
-    padding: 12px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: auto;
+`;
+
+export const Info = styled.div`
+    padding: 8px 10px;
+    height: 96px;
+`;
+
+export const Rating = styled.div<{ visible: boolean }>`
+    display: ${({ visible }) => (visible ? 'flex' : 'none')};
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10px;
+    border-top: 1px solid #d9d9d9;
+    height: 56px;
 `;
 
 export const Label = styled.label`
