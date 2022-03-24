@@ -5,24 +5,32 @@ import InputForm from './components/InputForm';
 function App() {
     return (
         <Container>
-            <div>
+            <div style={{ marginBottom: 10 }}>
                 <InputForm value={'asdf'} />
             </div>
 
-            <div>
+            <div style={{ marginBottom: 10 }}>
+                <InputForm value={'defaultValue'} maxLength={50} />
+            </div>
+
+            <div style={{ marginBottom: 10 }}>
                 <InputForm value={''} placeholder={'placeholder'} />
             </div>
 
-            <div>
-                <InputForm value={''} placeholder={'placeholder'} maxLength={50} />
+            <div style={{ marginBottom: 10 }}>
+                <InputForm value={''} placeholder={'placeholder maxLength'} maxLength={50} />
             </div>
 
-            <div>
+            <div style={{ marginBottom: 10 }}>
                 <InputForm value={'disabled'} placeholder={'placeholder'} maxLength={50} disabled />
             </div>
 
-            <div>
+            <div style={{ marginBottom: 10 }}>
                 <InputForm value={'readonly'} placeholder={'placeholder'} maxLength={50} readOnly />
+            </div>
+
+            <div style={{ marginBottom: 10 }}>
+                <InputForm value={''} placeholder={'placeholder readonly'} maxLength={50} readOnly />
             </div>
 
             <CardItem width={300}>

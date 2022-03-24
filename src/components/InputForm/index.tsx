@@ -5,19 +5,35 @@ type InputFormType = TextareaHTMLAttributes<HTMLTextAreaElement> & {
     value: string;
     maxLength?: number;
     disabled?: boolean;
+    onChange?(value: string): void;
+    onSubmit?(value: string): void;
 };
 
-function InputForm({ value, placeholder, maxLength, disabled = false, readOnly = false }: InputFormType) {
+function InputForm({
+    value,
+    placeholder,
+    maxLength,
+    disabled = false,
+    readOnly = false,
+    onChange,
+    onSubmit,
+}: InputFormType) {
     const [formValue, setFormValue] = useState<string>(value || '');
     const isDirty = value !== formValue;
-    const remainMaxLength = maxLength && maxLength - formValue.length;
+    const count = maxLength && maxLength - formValue.length;
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setFormValue(e.currentTarget.value);
+        onChange?.(e.currentTarget.value);
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        onSubmit?.(formValue);
     };
 
     return (
-        <Styled.Form>
+        <Styled.Form onSubmit={handleSubmit}>
             <Styled.Label>
                 <Styled.Textarea
                     value={formValue}
@@ -27,7 +43,7 @@ function InputForm({ value, placeholder, maxLength, disabled = false, readOnly =
                     readOnly={readOnly}
                     maxLength={maxLength}
                 ></Styled.Textarea>
-                {maxLength && <div>{remainMaxLength}</div>}
+                {maxLength && <Styled.Counter>{count}</Styled.Counter>}
             </Styled.Label>
 
             {isDirty && <Styled.FormButton type='submit'>Save</Styled.FormButton>}
