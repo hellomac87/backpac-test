@@ -29,6 +29,7 @@ export const Thumbnail = styled.div<Thumbnail>`
     background-position: 50%;
     width: 100%;
     height: auto;
+
     display: block;
     position: relative;
 
