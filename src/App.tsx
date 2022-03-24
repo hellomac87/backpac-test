@@ -1,9 +1,30 @@
 import styled from 'styled-components';
 import Card from './components/Card';
+import InputForm from './components/InputForm';
 
 function App() {
     return (
         <Container>
+            <div>
+                <InputForm value={'asdf'} />
+            </div>
+
+            <div>
+                <InputForm value={''} placeholder={'placeholder'} />
+            </div>
+
+            <div>
+                <InputForm value={''} placeholder={'placeholder'} maxLength={50} />
+            </div>
+
+            <div>
+                <InputForm value={'disabled'} placeholder={'placeholder'} maxLength={50} disabled />
+            </div>
+
+            <div>
+                <InputForm value={'readonly'} placeholder={'placeholder'} maxLength={50} readOnly />
+            </div>
+
             <CardItem width={300}>
                 <Card
                     image='https://image.idus.com/image/files/80a2555dae5d4afebadc9f38aed072f4_512.jpg'
@@ -44,8 +65,8 @@ function App() {
 export default App;
 
 const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
 `;
 
 const CardItem = styled.div<{ width?: number }>`
